@@ -10,3 +10,14 @@ class Pos:
         return tuple((self.row, self.col))
 
 
+class Maze:
+    def __init__(self, map: list[list]):
+        self.map = map
+
+    def setChar(self, spcPos: Pos, newChar: str):
+        self.map[spcPos.row][spcPos.col] = newChar
+
+    def getChar(self, position: Pos):
+        return self.map[position.row][position.col]
+
+
