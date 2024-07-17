@@ -6,4 +6,7 @@ class Pos:
     def __eq__(self, other):
         return self.row == other.row and self.col == other.col
 
+    def getPos(self):
+        return tuple((self.row, self.col))
+
 
