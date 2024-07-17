@@ -1,2 +1,5 @@
 # DSTalks
-All about Data Structures
+All about Data Structures and Algorithms
+
+## Why ?
+
