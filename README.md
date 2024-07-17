@@ -10,5 +10,5 @@ As a Computer engineering student, We need to have a profound knowledge on DSA, 
 
 ## Duties
 1 - Be responsible to my idea\
-2 - Respect all learning level\
+2 - Respect all learning levels\
 3 - Use codes as simple as possible , you can write code in all level, but It would be better to use simple syntaxes first.
