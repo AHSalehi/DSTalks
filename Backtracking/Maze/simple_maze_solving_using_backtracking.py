@@ -21,3 +21,11 @@ class Maze:
         return self.map[position.row][position.col]
 
 
+class Seeker:
+    def __init__(self, initPos: Pos, maze: Maze):
+        self.thread = [initPos]
+        self.map = maze
+        self.current = initPos
+        self.actionList = []
+
+
