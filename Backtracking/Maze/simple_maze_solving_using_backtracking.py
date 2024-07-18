@@ -39,4 +39,24 @@ class Seeker:
     def getCurrentPos(self):
         return self.current
 
+    def checkRightMove(self):
+        width = self.map.getWidth()
+        nextPos = Pos(self.current.row, self.current.col+1)
+        return nextPos.col != (width - 1) and (self.map.getChar(nextPos) == '_' or self.map.getChar(nextPos) == 'D')
+
+    def checkLeftMove(self):
+        width = self.map.getWidth()
+        nextPos = Pos(self.current.row, self.current.col - 1)
+        return nextPos.col != 0 and (self.map.getChar(nextPos) == '_' or self.map.getChar(nextPos) == 'D')
+
+    def checkDownMove(self):
+        height = self.map.getHeight()
+        nextPos = Pos(self.current.row + 1, self.current.col)
+        return nextPos.row != (height - 1) and (self.map.getChar(nextPos) == '_' or self.map.getChar(nextPos) == 'D')
+
+    def checkUpMove(self):
+        height = self.map.getHeight()
+        nextPos = Pos(self.current.row - 1, self.current.col)
+        return nextPos.row != 0 and (self.map.getChar(nextPos) == '_' or self.map.getChar(nextPos) == 'D')
+
 
