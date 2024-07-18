@@ -28,4 +28,7 @@ class Seeker:
         self.current = initPos
         self.actionList = []
 
+    def getCurrentPos(self):
+        return self.current
+
 
