@@ -11,8 +11,16 @@ class Pos:
 
 
 class Maze:
-    def __init__(self, map: list[list]):
+    def __init__(self, map: list[list], width: int, height: int):
         self.map = map
+        self.width = width
+        self.height = height
+
+    def getWidth(self):
+        return self.width
+
+    def getHeight(self):
+        return self.height
 
     def setChar(self, spcPos: Pos, newChar: str):
         self.map[spcPos.row][spcPos.col] = newChar
