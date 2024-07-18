@@ -59,4 +59,18 @@ class Seeker:
         nextPos = Pos(self.current.row - 1, self.current.col)
         return nextPos.row != 0 and (self.map.getChar(nextPos) == '_' or self.map.getChar(nextPos) == 'D')
 
+    def getActionList(self):
+        return self.actionList
 
+    def addActionList(self, action: str):
+        self.actionList.append(action)
+
+    def searchInThread(self, newPos: Pos):
+        for pos in self.thread:
+            if pos == newPos:
+                return True
+        return False
+
+    def addPosToThread(self, newPos: Pos):
+        if self.searchInThread(newPos):
+            self.thread.append(newPos)
