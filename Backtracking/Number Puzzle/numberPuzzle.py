@@ -51,4 +51,23 @@ class Board:
         return -1
 
     def isCorrectBoard(self):
-        return self.findEmptyCell() != -1 and len(self.map) == len(self.map[0])
+        count = 0
+        for row in self.map:
+            for number in row:
+                if number != ' ':
+                    count += 1
+        return self.findEmptyCell() != -1 and len(self.map) == len(self.map[0]) and count == self.boardSize**2 - 1
+
+    def getChar(self, pos: tuple):
+        return self.map[pos[0]][pos[1]]
+
+
+def solve(board: Board):
+    if not board.isCorrectBoard():
+        return "Wrong map :x"
+
+    if board.is_sorted():
+        board.printMap()
+        return True
+
+    # pos = board.findEmptyCell()
