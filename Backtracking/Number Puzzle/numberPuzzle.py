@@ -7,6 +7,7 @@ class Board:
         self.map = map
 
     def printMap(self):
+        print("---------------------------------------------------")
         for row in self.map:
             for number in row:
                 print(number, end=' ')
@@ -61,13 +62,44 @@ class Board:
     def getChar(self, pos: tuple):
         return self.map[pos[0]][pos[1]]
 
+    def setChar(self, pos: tuple, newChar):
+        self.map[pos[0]][pos[1]] = newChar
+
 
 def solve(board: Board):
+    row_move = [1, -1, 0, 0]
+    col_move = [0, 0, 1, -1]
+    size = board.boardSize
+    current = board.findEmptyCell()
+
     if not board.isCorrectBoard():
         return "Wrong map :x"
 
-    if board.is_sorted():
+    if board.is_sorted() and (board.getChar((size - 1, size - 1)) == ' ' or board.getChar((0, 0)) == ' '):
         board.printMap()
         return True
 
-    # pos = board.findEmptyCell()
+    for i in range(4):
+        next_row = current[0] + row_move[i]
+        next_col = current[1] + col_move[i]
+        if next_row < 0 or next_row >= board.boardSize or next_col < 0 or next_col >= board.boardSize:
+            continue
+        board.setChar(current, board.getChar((next_row, next_col)))
+        board.setChar((next_row, next_col), ' ')
+        board.printMap()
+        if solve(board):
+            return True
+
+    return False
+
+
+
+
+map = [
+    [2, 1, 3],
+    [4, 7, ' '],
+    [8, 5, 6]
+]
+
+board = Board(3, map)
+solve(board)
