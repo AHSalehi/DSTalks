@@ -34,6 +34,10 @@ class ChessBoard: # Constraints : Chess board is a square board
                 print(cell, end=' ')
             print()
 
+    def setChar(self, pos: Pos, char: str):
+        self.map[pos.row][pos.col] = char
+
+
 
 
 
