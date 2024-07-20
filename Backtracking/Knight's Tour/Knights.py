@@ -20,7 +20,7 @@ class Pos:
 class ChessBoard: # Constraints : Chess board is a square board
     def __init__(self, N: int):
         self.n = N
-        self.map = [['_' for j in range(8)] for i in range(8)]
+        self.map = [['_' for j in range(N)] for i in range(N)]
 
     def getStat(self, pos: Pos):
         return self.map[pos.row][pos.col]
@@ -33,9 +33,6 @@ class ChessBoard: # Constraints : Chess board is a square board
             for cell in row:
                 print(cell, end=' ')
             print()
-
-
-
 
 
 
