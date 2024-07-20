@@ -28,5 +28,15 @@ class ChessBoard: # Constraints : Chess board is a square board
     def mapSize(self):
         return self.n
 
+    def printMap(self):
+        for row in self.map:
+            for cell in row:
+                print(cell, end=' ')
+            print()
+
+
+
+
+
 
 
