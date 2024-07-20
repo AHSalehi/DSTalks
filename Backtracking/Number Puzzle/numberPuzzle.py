@@ -41,4 +41,14 @@ class Board:
                     line.append(number)
         base = line[:]
         base.sort()
-        return base == line
+        return base == line and self.map[self.boardSize - 1][self.boardSize - 1] == ' '
+
+    def findEmptyCell(self):
+        for i in range(len(self.map)):
+            for j in range(len(self.map)):
+                if self.map[i][j] == ' ':
+                    return tuple((i, j))
+        return -1
+
+    def isCorrectBoard(self):
+        return self.findEmptyCell() != -1 and len(self.map) == len(self.map[0])
